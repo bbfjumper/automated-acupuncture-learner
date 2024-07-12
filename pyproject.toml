@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "voc_trainer"
+version = "0.1.0"
+description = "Train vocabulary with the help of a spaced repetition algorithm"
+authors = ["Maik Kunkel"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<=3.11"
+numpy = "^1.23.0"
+matplotlib = "^3.7.1"
+mypy = "^1.4.1"
+prettytable = "^3.9.0"
+pyinstaller = "^6.6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+ignore_missing_imports = true
+exclude = ["submodules", ".venv"]
+python_executable = ".venv/Scripts/python.exe"  # This will make it easier for mypy to find extra stubs
+python_version = "3.9"
+check_untyped_defs = false
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unreachable = true
+disallow_subclassing_any = true  # Forbid deriving from `Any` unless user acknowledges with # type: ignore
+strict_equality = true  # If a comparison does not make sense from the point of view of types
+
+ 
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+exclude = ["submodules"]
+select = ["F", "E", "I", "N", "D", "UP", "YTT", "ASYNC", "BLE", "B", "A", "C4", "DTZ", "T10", "DJ", "EXE", "ISC", "ICN", "G", "PIE", "PYI", "PT", "Q", "RSE", "RET", "SLF", "SIM", "TID", "INT", "ARG", "FIX", "PD", "PGH", "PL", "FLY", "NPY", "AIR", "RUF"]
+ignore = ["SIM102", "EM101", "PLR", "D100", "D103", "C419", "D104", "D105", "D212", "PGH003", "RUF001", "D101", "PD901", "C405", "PLC1901", "UP015", "PLC0414", "I001", "NPY002", "D102","E501"]
